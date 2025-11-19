@@ -19,3 +19,9 @@ boton4.addEventListener('click', function() {
     }
     textoAlternado = !textoAlternado;
 });
+//Ejercicio 5
+const boton5 = document.getElementById('boton-ej5');
+
+boton5.addEventListener('click', function() {
+    document.body.classList.toggle('oscuro');
+});
