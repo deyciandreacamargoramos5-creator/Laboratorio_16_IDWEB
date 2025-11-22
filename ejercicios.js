@@ -196,3 +196,13 @@ function generarTabla() {
     contenedorTabla.appendChild(tabla);
 }
 btnGenerar.addEventListener("click", generarTabla);
+//Ejercicio 11
+const listaDelegada = document.getElementById("lista-delegada");
+function manejarClick(e) {
+    if (e.target.tagName === "LI") {
+        const elementoAEliminar = e.target;
+        
+        elementoAEliminar.parentElement.removeChild(elementoAEliminar);
+    }
+}
+listaDelegada.addEventListener("click", manejarClick);
