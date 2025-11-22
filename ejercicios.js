@@ -375,3 +375,21 @@ const productoActualizadoJSON=JSON.stringify(productoObjeto);
 document.getElementById("json-modificado").textContent=productoActualizadoJSON;
 console.log("JSON Original:",productoJSON);
 console.log("JSON Actualizado:",productoActualizadoJSON);
+//Ejercicio 20
+const inputNombre1=document.getElementById("input-nombre");
+const btnGuardar=document.getElementById("btn-guardar");
+function guardarDatos(){
+    const nombre=inputNombre1.value.trim();
+    if(nombre===""){
+        console.log("Ingresa tu nombre");
+        return;
+    }
+    const datosUsuario={
+        nombre:nombre,
+        fecha:new Date().toLocaleDateString()
+    };
+    const datosJSON=JSON.stringify(datosUsuario);
+    console.log("Objeto JS creado:",datosUsuario);
+    console.log("JSON generado:",datosJSON);
+}
+btnGuardar.addEventListener("click",guardarDatos);
