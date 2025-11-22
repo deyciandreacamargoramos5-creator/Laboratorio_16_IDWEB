@@ -284,3 +284,8 @@ console.log(persona);
 
 console.log("Cadena JSON (string):");
 console.log(personaJSON);
+//Ejercicio 15
+const cadenaJSON = '{"nombre": "Carlos", "trabajo": "Desarrollador", "salario": 50000}';
+const contenedorNombre = document.getElementById("nombre-empleado");
+const objetoEmpleado = JSON.parse(cadenaJSON); 
+contenedorNombre.textContent = objetoEmpleado.nombre; 
