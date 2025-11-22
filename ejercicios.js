@@ -393,3 +393,23 @@ function guardarDatos(){
     console.log("JSON generado:",datosJSON);
 }
 btnGuardar.addEventListener("click",guardarDatos);
+//Ejercicio 21
+const tareasJSON=`[{"titulo":"Hacer la compra","completada":true},{"titulo":"Pagar facturas","completada":false},{"titulo":"Estudiar JS","completada":true},{"titulo":"Llamar al cliente","completada":false}]`;
+const listaTareas=document.getElementById("lista-tareas");
+const tareas=JSON.parse(tareasJSON);
+tareas.forEach(tarea=>{
+    const item=document.createElement("li");
+    item.textContent=tarea.titulo;
+    item.style.padding="8px";
+    item.style.marginBottom="5px";
+    item.style.borderRadius="4px";
+    if(tarea.completada){
+        item.style.color="white";
+        item.style.backgroundColor="green";
+        item.style.fontWeight="bold";
+    }else{
+        item.style.color="#333";
+        item.style.backgroundColor="yellow";
+    }
+    listaTareas.appendChild(item);
+});
