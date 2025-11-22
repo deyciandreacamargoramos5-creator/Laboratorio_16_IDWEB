@@ -1,0 +1,10 @@
+body {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.oscuro {
+    background-color: #333;
+    color: white;
+}
