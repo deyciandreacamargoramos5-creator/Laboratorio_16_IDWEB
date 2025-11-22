@@ -1,0 +1,30 @@
+#cuadrado {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    position: relative;
+    left: 0;
+    transition: all 0.5s ease-out;
+}
+@keyframes deslizar {
+    0% { left: 0px; }
+    100% { left: 150px; }
+}
+.mover {
+    animation: deslizar 2s forwards;
+}
+#btn-mover {
+    padding: 10px; 
+    margin-right: 10px; 
+    background-color: green; 
+    color: white; 
+    border: none; 
+    cursor: pointer;
+}
+#btn-reiniciar {
+    padding: 10px; 
+    background-color: red; 
+    color: white; 
+    border: none; 
+    cursor: pointer;
+}

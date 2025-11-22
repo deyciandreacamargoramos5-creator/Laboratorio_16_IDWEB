@@ -206,3 +206,15 @@ function manejarClick(e) {
     }
 }
 listaDelegada.addEventListener("click", manejarClick);
+//Ejercicio 12
+const cuadrado = document.getElementById("cuadrado");
+const btnMover = document.getElementById("btn-mover");
+const btnReiniciar = document.getElementById("btn-reiniciar");
+function iniciarMovimiento() {
+    cuadrado.classList.add("mover");
+}
+function reiniciarPosicion() {
+    cuadrado.classList.remove("mover");
+}
+btnMover.addEventListener("click", iniciarMovimiento);
+btnReiniciar.addEventListener("click", reiniciarPosicion);
