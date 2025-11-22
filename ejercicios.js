@@ -147,3 +147,52 @@ miniaturas.addEventListener("click", function(e) {
         }
     }
 });
+//Ejercicio 10
+const productos = [
+    { nombre: "Laptop", precio: 3500 },
+    { nombre: "Mouse", precio: 80 },
+    { nombre: "Monitor", precio: 1200 },
+    { nombre: "Teclado Mecánico", precio: 250 }
+];
+const btnGenerar = document.getElementById("btn-generar-tabla");
+const contenedorTabla = document.getElementById("contenedor-tabla");
+function generarTabla() {
+    contenedorTabla.innerHTML = "";
+    const tabla = document.createElement("table");
+    tabla.style.borderCollapse = "collapse";
+    tabla.style.width = "50%";
+    tabla.style.border = "1px solid black";
+    const thead = document.createElement("thead");
+    const tbody = document.createElement("tbody");
+    const encabezadoFila = document.createElement("tr");
+    const thNombre = document.createElement("th");
+    thNombre.textContent = "Nombre";
+    thNombre.style.border = "1px solid black";
+    thNombre.style.padding = "8px";
+    const thPrecio = document.createElement("th");
+    thPrecio.textContent = "Precio";
+    thPrecio.style.border = "1px solid black";
+    thPrecio.style.padding = "8px";
+    encabezadoFila.appendChild(thNombre);
+    encabezadoFila.appendChild(thPrecio);
+    thead.appendChild(encabezadoFila);
+    productos.forEach(producto => {
+        const fila = document.createElement("tr");
+        const celdaNombre = document.createElement("td");
+        celdaNombre.textContent = producto.nombre;
+        celdaNombre.style.border = "1px solid black";
+        celdaNombre.style.padding = "8px";
+        const celdaPrecio = document.createElement("td");
+        celdaPrecio.textContent = "$" + producto.precio.toFixed(2);
+        celdaPrecio.style.border = "1px solid black";
+        celdaPrecio.style.padding = "8px";
+        celdaPrecio.style.textAlign = "right";
+        fila.appendChild(celdaNombre);
+        fila.appendChild(celdaPrecio);
+        tbody.appendChild(fila);
+    });
+    tabla.appendChild(thead);
+    tabla.appendChild(tbody);   
+    contenedorTabla.appendChild(tabla);
+}
+btnGenerar.addEventListener("click", generarTabla);
