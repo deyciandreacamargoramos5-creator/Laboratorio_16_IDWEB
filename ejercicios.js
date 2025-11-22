@@ -322,3 +322,46 @@ if(storedDataJSON){
 }else{
     mensajeEstado1.textContent="No se encontraron datos en localStorage.";
 }
+//Ejercicio 18
+const librosJSON=`[{"titulo":"Cien años de soledad","autor":"Gabriel García Márquez"},{"titulo"
+:"1984","autor":"George Orwell"},{"titulo":"El Principito","autor":"Antoine de Saint-Exupéry"}]`;
+const contenedorTabla1=document.getElementById("contenedor-tabla");
+const libros=JSON.parse(librosJSON);
+const tabla=document.createElement("table");
+tabla.setAttribute("border","1");
+tabla.style.width="80%";
+tabla.style.borderCollapse="collapse";
+tabla.style.marginTop="15px";
+const thead=document.createElement("thead");
+const encabezadoFila=document.createElement("tr");
+encabezadoFila.style.backgroundColor="lightgray";
+const thTitulo=document.createElement("th");
+thTitulo.textContent="Título";
+thTitulo.style.border="1px solid #000";
+thTitulo.style.padding="10px";
+const thAutor=document.createElement("th");
+thAutor.textContent="Autor";
+thAutor.style.border="1px solid #000";
+thAutor.style.padding="10px";
+encabezadoFila.appendChild(thTitulo);
+encabezadoFila.appendChild(thAutor);
+thead.appendChild(encabezadoFila);
+tabla.appendChild(thead);
+const tbody=document.createElement("tbody");
+libros.forEach(libro=>{
+    const fila=document.createElement("tr");
+    const tdTitulo=document.createElement("td");
+    tdTitulo.textContent=libro.titulo;
+    tdTitulo.style.border="1px solid #ccc";
+    tdTitulo.style.padding="8px";
+    const tdAutor=document.createElement("td");
+    tdAutor.textContent=libro.autor;
+    tdAutor.style.border="1px solid #ccc";
+    tdAutor.style.padding="8px";
+    tdAutor.style.fontStyle="italic";
+    fila.appendChild(tdTitulo);
+    fila.appendChild(tdAutor);
+    tbody.appendChild(fila);
+});
+tabla.appendChild(tbody);
+contenedorTabla1.appendChild(tabla);
