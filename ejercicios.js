@@ -272,3 +272,15 @@ function renderizarTabla() {
         tablaBody.appendChild(fila);
     });
 }
+//Ejercicio 14
+const persona = {
+    nombre: "Ana",
+    edad: 30,
+    ciudad: "Madrid"
+};
+const personaJSON = JSON.stringify(persona);
+console.log("Objeto JS (formato nativo):");
+console.log(persona);
+
+console.log("Cadena JSON (string):");
+console.log(personaJSON);
