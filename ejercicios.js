@@ -88,3 +88,50 @@ inputTexto.addEventListener("keypress", function(e) {
     }
 });
 btnEliminarUltimo.addEventListener("click", eliminarUltimoElemento);
+//Ejercicio 8
+const formulario = document.getElementById("formulario-contacto");
+const inputNombre = document.getElementById("nombre");
+const inputCorreo = document.getElementById("correo");
+formulario.addEventListener("submit", function(e) {
+    e.preventDefault(); 
+    validarFormulario();
+});
+function validarFormulario() {
+    let esValido = true;
+
+    if (inputNombre.value.trim() === " ") {
+        mostrarError(inputNombre, "El campo Nombre es obligatorio.");
+        esValido = false;
+    } else {
+        quitarError(inputNombre);
+    }
+    if (inputCorreo.value.trim() === " ") {
+        mostrarError(inputCorreo, "El campo Correo es obligatorio");
+        esValido = false;
+    } else {
+        quitarError(inputCorreo);
+    }
+    if (esValido) {
+        alert("Formulario enviado");
+        formulario.reset();
+    }
+}
+function mostrarError(inputElement, mensaje) {
+    const parent = inputElement.parentElement;
+    let spanError = parent.querySelector(".error-mensaje");
+    if (!spanError) {
+        spanError = document.createElement("span");
+        spanError.classList.add("error-mensaje");
+        spanError.style.color = "red";
+        parent.appendChild(spanError);
+    }   
+    spanError.textContent = mensaje;
+}
+function quitarError(inputElement) {
+    const parent = inputElement.parentElement;
+    const spanError = parent.querySelector(".error-mensaje");
+    
+    if (spanError) {
+        parent.removeChild(spanError);
+    }
+}
