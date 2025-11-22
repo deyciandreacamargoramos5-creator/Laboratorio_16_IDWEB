@@ -305,3 +305,20 @@ productosObjeto.forEach(producto=>{
     lista.appendChild(item);
 });
 contenedorLista.appendChild(lista);
+//Ejercicio 17
+const userData={nombre:"Elena Gómez",correo:"elena.gomez@empresa.com",rol:"Administradora"};
+const key="datosUsuario";
+const mensajeEstado1=document.getElementById("mensaje-estado");
+const userDataJSON=JSON.stringify(userData);
+localStorage.setItem(key,userDataJSON);
+mensajeEstado1.textContent="Datos guardados en localStorage.";
+const storedDataJSON=localStorage.getItem(key);
+if(storedDataJSON){
+    const storedUser=JSON.parse(storedDataJSON);
+    document.getElementById("nombre-ls").textContent=storedUser.nombre;
+    document.getElementById("correo-ls").textContent=storedUser.correo;
+    document.getElementById("rol-ls").textContent=storedUser.rol;
+    mensajeEstado.textContent+=" Datos recuperados y mostrados.";
+}else{
+    mensajeEstado1.textContent="No se encontraron datos en localStorage.";
+}
