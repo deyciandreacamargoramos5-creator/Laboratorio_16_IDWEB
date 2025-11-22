@@ -218,3 +218,57 @@ function reiniciarPosicion() {
 }
 btnMover.addEventListener("click", iniciarMovimiento);
 btnReiniciar.addEventListener("click", reiniciarPosicion);
+//Ejercicio 13
+let nextId = 1;
+const usuarios = [];
+const formulario1 = document.getElementById("formulario1"); 
+const tablaBody = document.querySelector("#tabla-usuarios tbody");
+formulario1.addEventListener("submit", function(e) { 
+    e.preventDefault();
+    const nombre = document.getElementById("nombre").value.trim();
+    const edad = parseInt(document.getElementById("edad").value);
+    if (nombre && !isNaN(edad)) {
+        crearUsuario(nombre, edad);
+        formulario1.reset(); 
+    }
+});
+tablaBody.addEventListener("click", function(e) {
+    if (e.target.classList.contains("btn-eliminar")) {
+        const id = parseInt(e.target.closest("tr").dataset.id);
+        eliminarUsuario(id);
+    }
+});
+function crearUsuario(nombre, edad) {
+    const nuevoUsuario = {
+        id: nextId++,
+        nombre: nombre,
+        edad: edad
+    };
+    usuarios.push(nuevoUsuario);
+    renderizarTabla(); }
+function eliminarUsuario(id) {
+    const index = usuarios.findIndex(user => user.id === id);
+    if (index !== -1) {
+        usuarios.splice(index, 1);
+        renderizarTabla();
+    } }
+function renderizarTabla() {
+    tablaBody.innerHTML = "";
+    usuarios.forEach(user => {
+        const fila = document.createElement("tr");
+        fila.dataset.id = user.id;
+        const celdaNombre = document.createElement("td");
+        celdaNombre.textContent = user.nombre;
+        const celdaEdad = document.createElement("td");
+        celdaEdad.textContent = user.edad;
+        const celdaAccion = document.createElement("td");
+        const btnEliminar = document.createElement("button");
+        btnEliminar.textContent = "Eliminar";
+        btnEliminar.classList.add("btn-eliminar");
+        celdaAccion.appendChild(btnEliminar);
+        fila.appendChild(celdaNombre);
+        fila.appendChild(celdaEdad);
+        fila.appendChild(celdaAccion);
+        tablaBody.appendChild(fila);
+    });
+}
