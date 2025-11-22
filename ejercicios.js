@@ -365,3 +365,13 @@ libros.forEach(libro=>{
 });
 tabla.appendChild(tbody);
 contenedorTabla1.appendChild(tabla);
+//Ejercicio 19
+const productoJSON='{"nombre":"Impresora","precio":350,"stock":10}';
+document.getElementById("json-original").textContent=productoJSON;
+const productoObjeto=JSON.parse(productoJSON);
+productoObjeto.precio=399;
+productoObjeto.stock=7;
+const productoActualizadoJSON=JSON.stringify(productoObjeto);
+document.getElementById("json-modificado").textContent=productoActualizadoJSON;
+console.log("JSON Original:",productoJSON);
+console.log("JSON Actualizado:",productoActualizadoJSON);
