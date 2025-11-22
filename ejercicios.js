@@ -98,7 +98,6 @@ formulario.addEventListener("submit", function(e) {
 });
 function validarFormulario() {
     let esValido = true;
-
     if (inputNombre.value.trim() === " ") {
         mostrarError(inputNombre, "El campo Nombre es obligatorio.");
         esValido = false;
@@ -135,3 +134,16 @@ function quitarError(inputElement) {
         parent.removeChild(spanError);
     }
 }
+//Ejercicio 9
+const imagenPrincipal = document.getElementById('imagen-principal');
+const miniaturas = document.getElementById('miniaturas');
+miniaturas.addEventListener("click", function(e) {
+    if (e.target.classList.contains('miniatura')) {
+        const miniaturaClicada = e.target;
+        const nuevaSrc = miniaturaClicada.getAttribute("data-full-src");
+        if (nuevaSrc) {
+            imagenPrincipal.setAttribute("src", nuevaSrc);
+            imagenPrincipal.setAttribute("alt", miniaturaClicada.getAttribute("alt").replace("Miniatura", "Imagen Principal"));
+        }
+    }
+});
