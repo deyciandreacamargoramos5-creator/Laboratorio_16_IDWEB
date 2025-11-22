@@ -171,6 +171,28 @@
     <!--Ejercicio 21-->
     <h1 style="color:darkmagenta;">"Lista de Tareas"</h1>
     <ul id="lista-tareas" style="list-style-type:none;padding-left:0;"></ul>
+
+    <!--Ejercicio 22-->
+    <h1 style="color:#1a5e37;">"Simulador de Perfil"</h1>
+    <div id="formulario-contenedor" style="border:2px solid #1a5e37;padding:20px;background-color:white;">
+        <h2 style="color:#2e8b57;">"Crear Perfil"</h2>
+        <form id="formulario-perfil">
+            <label for="perfil-nombre" style="display:block;margin-bottom:5px;">"Nombre:"</label>
+            <input type="text" id="perfil-nombre" required style="padding:8px;margin-bottom:10px;width:90%;border:1px solid #ccc;"><br>
+            <label for="perfil-edad" style="display:block;margin-bottom:5px;">"Edad:"</label>
+            <input type="number" id="perfil-edad" required style="padding:8px;margin-bottom:10px;width:90%;border:1px solid #ccc;"><br>
+            <label for="perfil-pais" style="display:block;margin-bottom:5px;">"País:"</label>
+            <input type="text" id="perfil-pais" required style="padding:8px;margin-bottom:15px;width:90%;border:1px solid #ccc;"><br>
+            <button type="submit" style="padding:10px 15px;background-color:#2e8b57;color:white;border:none;cursor:pointer;">"Guardar Perfil"</button>
+        </form>
+    </div>
+    <div id="perfil-guardado" style="display:none;border:2px solid #005f00;padding:20px;background-color:#d4edda;margin-top:20px;">
+        <h2 style="color:#005f00;">"Tu Perfil Guardado"</h2>
+        <p style="font-size:1.1em;">"Nombre:"<span id="mostrar-nombre" style="font-weight:bold;color:#004c00;"></span></p>
+        <p style="font-size:1.1em;">"Edad:"<span id="mostrar-edad" style="font-weight:bold;color:#004c00;"></span></p>
+        <p style="font-size:1.1em;">"País:"<span id="mostrar-pais" style="font-weight:bold;color:#004c00;"></span></p>
+        <button id="btn-borrar-perfil" style="padding:8px 12px;background-color:#cc0000;color:white;border:none;cursor:pointer;margin-top:15px;">"Borrar Perfil"</button>
+    </div>
     
     <script src="ejercicios.js"></script>
 </body>

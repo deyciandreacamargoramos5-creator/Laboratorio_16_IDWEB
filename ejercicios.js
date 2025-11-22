@@ -394,7 +394,9 @@ function guardarDatos(){
 }
 btnGuardar.addEventListener("click",guardarDatos);
 //Ejercicio 21
-const tareasJSON=`[{"titulo":"Hacer la compra","completada":true},{"titulo":"Pagar facturas","completada":false},{"titulo":"Estudiar JS","completada":true},{"titulo":"Llamar al cliente","completada":false}]`;
+const tareasJSON=`[{"titulo":"Hacer la compra","completada":true},
+{"titulo":"Pagar facturas","completada":false},{"titulo":"Estudiar JS",
+"completada":true},{"titulo":"Llamar al cliente","completada":false}]`;
 const listaTareas=document.getElementById("lista-tareas");
 const tareas=JSON.parse(tareasJSON);
 tareas.forEach(tarea=>{
@@ -413,3 +415,42 @@ tareas.forEach(tarea=>{
     }
     listaTareas.appendChild(item);
 });
+//Ejercicio 22
+const keyPerfil="perfilUsuario";
+const formularioContenedor=document.getElementById("formulario-contenedor");
+const formulario2=document.getElementById("formulario-perfil");
+const perfilGuardadoDiv=document.getElementById("perfil-guardado");
+const btnBorrar=document.getElementById("btn-borrar-perfil");
+document.addEventListener("DOMContentLoaded",function(){
+    mostrarPerfil();
+});
+formulario2.addEventListener("submit",function(e){
+    e.preventDefault();
+    const nombre=document.getElementById("perfil-nombre").value.trim();
+    const edad=parseInt(document.getElementById("perfil-edad").value);
+    const pais=document.getElementById("perfil-pais").value.trim();
+    if(nombre && !isNaN(edad) && pais){
+        const perfil={nombre,edad,pais};
+        const perfilJSON=JSON.stringify(perfil);
+        localStorage.setItem(keyPerfil,perfilJSON);
+        mostrarPerfil();
+    }
+});
+btnBorrar.addEventListener("click",function(){
+    localStorage.removeItem(keyPerfil);
+    mostrarPerfil();
+});
+function mostrarPerfil(){
+    const perfilJSON=localStorage.getItem(keyPerfil);
+    if(perfilJSON){
+        const perfil=JSON.parse(perfilJSON);
+        document.getElementById("mostrar-nombre").textContent=perfil.nombre;
+        document.getElementById("mostrar-edad").textContent=perfil.edad;
+        document.getElementById("mostrar-pais").textContent=perfil.pais;
+        formularioContenedor.style.display="none";
+        perfilGuardadoDiv.style.display="block";
+    }else{
+        formularioContenedor.style.display="block";
+        perfilGuardadoDiv.style.display="none";
+    }
+}
