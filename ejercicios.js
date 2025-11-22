@@ -289,3 +289,19 @@ const cadenaJSON = '{"nombre": "Carlos", "trabajo": "Desarrollador", "salario": 
 const contenedorNombre = document.getElementById("nombre-empleado");
 const objetoEmpleado = JSON.parse(cadenaJSON); 
 contenedorNombre.textContent = objetoEmpleado.nombre; 
+//Ejercicio 16
+const productos1=[{nombre:"Tablet",precio:800},{nombre:"Auriculares",precio:150},{nombre:"Cámara",precio:1500}];
+const contenedorLista=document.getElementById("contenedor-lista");
+const productosJSON=JSON.stringify(productos1);
+const productosObjeto=JSON.parse(productosJSON);
+const lista=document.createElement("ul");
+lista.style.listStyleType="square";
+lista.style.paddingLeft="20px";
+productosObjeto.forEach(producto=>{
+    const item=document.createElement("li");
+    item.textContent=producto.nombre;
+    item.style.marginBottom="5px";
+    item.style.color="darkgreen";
+    lista.appendChild(item);
+});
+contenedorLista.appendChild(lista);
